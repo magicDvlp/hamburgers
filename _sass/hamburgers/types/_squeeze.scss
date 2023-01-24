@@ -1,4 +1,6 @@
-@if index($hamburger-types, squeeze) {
+@use 'sass:list';
+@use '../var';
+@if list.index(var.$hamburger-types, squeeze) {
   /*
    * Squeeze
    */

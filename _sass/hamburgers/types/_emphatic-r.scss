@@ -1,4 +1,6 @@
-@if index($hamburger-types, emphatic-r) {
+@use 'sass:list';
+@use '../var';
+@if list.index(var.$hamburger-types, emphatic-r) {
   /*
    * Emphatic Reverse
    */
@@ -16,7 +18,7 @@
       }
 
       &::after {
-        top: ($hamburger-layer-height) + ($hamburger-layer-spacing);
+        top: (var.$hamburger-layer-height) + (var.$hamburger-layer-spacing);
         right: 0;
         transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335),
                     top 0.05s 0.125s linear,
@@ -31,18 +33,18 @@
         background-color: transparent !important;
 
         &::before {
-          left: $hamburger-layer-width * -2;
-          top: $hamburger-layer-width * 2;
-          transform: translate3d($hamburger-layer-width * 2, $hamburger-layer-width * -2, 0) rotate(-45deg);
+          left: var.$hamburger-layer-width * -2;
+          top: var.$hamburger-layer-width * 2;
+          transform: translate3d(var.$hamburger-layer-width * 2, var.$hamburger-layer-width * -2, 0) rotate(-45deg);
           transition: left 0.125s ease-out,
                       top 0.05s 0.125s linear,
                       transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
         &::after {
-          right: $hamburger-layer-width * -2;
-          top: $hamburger-layer-width * 2;
-          transform: translate3d($hamburger-layer-width * -2, $hamburger-layer-width * -2, 0) rotate(45deg);
+          right: var.$hamburger-layer-width * -2;
+          top: var.$hamburger-layer-width * 2;
+          transform: translate3d(var.$hamburger-layer-width * -2, var.$hamburger-layer-width * -2, 0) rotate(45deg);
           transition: right 0.125s ease-out,
                       top 0.05s 0.125s linear,
                       transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);

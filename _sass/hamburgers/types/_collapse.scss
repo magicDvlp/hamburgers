@@ -1,4 +1,6 @@
-@if index($hamburger-types, collapse) {
+@use 'sass:list';
+@use '../var';
+@if list.index(var.$hamburger-types, collapse) {
   /*
    * Collapse
    */
@@ -11,7 +13,7 @@
       transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
       &::after {
-        top: ($hamburger-layer-spacing * 2 + $hamburger-layer-height * 2) * -1;
+        top: (var.$hamburger-layer-spacing * 2 + var.$hamburger-layer-height * 2) * -1;
         transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
                     opacity 0.1s linear;
       }
@@ -24,7 +26,7 @@
 
     &.is-active {
       .hamburger-inner {
-        transform: translate3d(0, ($hamburger-layer-spacing + $hamburger-layer-height) * -1, 0) rotate(-45deg);
+        transform: translate3d(0, (var.$hamburger-layer-spacing + var.$hamburger-layer-height) * -1, 0) rotate(-45deg);
         transition-delay: 0.22s;
         transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 

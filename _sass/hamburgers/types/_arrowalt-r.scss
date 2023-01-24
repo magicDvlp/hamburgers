@@ -1,4 +1,6 @@
-@if index($hamburger-types, arrowalt-r) {
+@use 'sass:list';
+@use '../var';
+@if list.index(var.$hamburger-types, arrowalt-r) {
   /*
    * Arrow Alt Right
    */
@@ -19,14 +21,14 @@
       .hamburger-inner {
         &::before {
           top: 0;
-          transform: translate3d($hamburger-layer-width * 0.2, $hamburger-layer-width * -0.25, 0) rotate(45deg) scale(0.7, 1);
+          transform: translate3d(var.$hamburger-layer-width * 0.2, var.$hamburger-layer-width * -0.25, 0) rotate(45deg) scale(0.7, 1);
           transition: top 0.1s ease,
                       transform 0.1s 0.1s cubic-bezier(0.895, 0.03, 0.685, 0.22);
         }
 
         &::after {
           bottom: 0;
-          transform: translate3d($hamburger-layer-width * 0.2, $hamburger-layer-width * 0.25, 0) rotate(-45deg) scale(0.7, 1);
+          transform: translate3d(var.$hamburger-layer-width * 0.2, var.$hamburger-layer-width * 0.25, 0) rotate(-45deg) scale(0.7, 1);
           transition: bottom 0.1s ease,
                       transform 0.1s 0.1s cubic-bezier(0.895, 0.03, 0.685, 0.22);
         }

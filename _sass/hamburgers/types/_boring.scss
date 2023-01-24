@@ -1,4 +1,6 @@
-@if index($hamburger-types, boring) {
+@use 'sass:list';
+@use '../var';
+@if list.index(var.$hamburger-types, boring) {
   /*
    * Boring
    */

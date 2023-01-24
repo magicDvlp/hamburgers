@@ -16,89 +16,89 @@ Hamburgers is a collection of tasty CSS-animated hamburger icons. Also included 
 
 1. [Download](https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css) and include the CSS in the `<head>` of your site:
 
-  ```html
-  <link href="dist/hamburgers.css" rel="stylesheet">
-  ```
+```html
+<link href="dist/hamburgers.css" rel="stylesheet" />
+```
 
 2. Add the base hamburger markup:
 
-  ```html
-  <button class="hamburger" type="button">
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-  </button>  
-  ```
+```html
+<button class="hamburger" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+```
 
-  You *can* use `<div>`s if you insist, but they’re not [accessible](#accessibility) as a menu button.
+You _can_ use `<div>`s if you insist, but they’re not [accessible](#accessibility) as a menu button.
 
-  ```html
-  <div class="hamburger">
-    <div class="hamburger-box">
-      <div class="hamburger-inner"></div>
-    </div>
+```html
+<div class="hamburger">
+  <div class="hamburger-box">
+    <div class="hamburger-inner"></div>
   </div>
-  ```
+</div>
+```
 
 3. Append the class name of the type of hamburger you’re craving:
 
-  ```html
-  <button class="hamburger hamburger--collapse" type="button">
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-  </button>
-  ```
+```html
+<button class="hamburger hamburger--collapse" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+```
 
-  Here’s the list of hamburger-type classes you can choose from:
+Here’s the list of hamburger-type classes you can choose from:
 
-  ```
-  hamburger--3dx
-  hamburger--3dx-r
-  hamburger--3dy
-  hamburger--3dy-r
-  hamburger--3dxy
-  hamburger--3dxy-r
-  hamburger--arrow
-  hamburger--arrow-r
-  hamburger--arrowalt
-  hamburger--arrowalt-r
-  hamburger--arrowturn
-  hamburger--arrowturn-r
-  hamburger--boring
-  hamburger--collapse
-  hamburger--collapse-r
-  hamburger--elastic
-  hamburger--elastic-r
-  hamburger--emphatic
-  hamburger--emphatic-r
-  hamburger--minus
-  hamburger--slider
-  hamburger--slider-r
-  hamburger--spin
-  hamburger--spin-r
-  hamburger--spring
-  hamburger--spring-r
-  hamburger--stand
-  hamburger--stand-r
-  hamburger--squeeze
-  hamburger--vortex
-  hamburger--vortex-r
-  ```
+```
+hamburger--3dx
+hamburger--3dx-r
+hamburger--3dy
+hamburger--3dy-r
+hamburger--3dxy
+hamburger--3dxy-r
+hamburger--arrow
+hamburger--arrow-r
+hamburger--arrowalt
+hamburger--arrowalt-r
+hamburger--arrowturn
+hamburger--arrowturn-r
+hamburger--boring
+hamburger--collapse
+hamburger--collapse-r
+hamburger--elastic
+hamburger--elastic-r
+hamburger--emphatic
+hamburger--emphatic-r
+hamburger--minus
+hamburger--slider
+hamburger--slider-r
+hamburger--spin
+hamburger--spin-r
+hamburger--spring
+hamburger--spring-r
+hamburger--stand
+hamburger--stand-r
+hamburger--squeeze
+hamburger--vortex
+hamburger--vortex-r
+```
 
-  Note: `-r` classes are reverse variants (e.g. `hamburger--spin` spins clockwise whereas `hamburger--spin-r` spins counterclockwise.
+Note: `-r` classes are reverse variants (e.g. `hamburger--spin` spins clockwise whereas `hamburger--spin-r` spins counterclockwise.
 
 4. Trigger the active state by appending class name `is-active`:
 
-  ```html
-  <button class="hamburger hamburger--collapse is-active" type="button">
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-  </button>
-  ```
+```html
+<button class="hamburger hamburger--collapse is-active" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+```
 
-  Since the class name would have to be toggled via JavaScript and implementation would differ based on the context of how you plan on using the hamburger, I’m going to leave the rest up to you.
+Since the class name would have to be toggled via JavaScript and implementation would differ based on the context of how you plan on using the hamburger, I’m going to leave the rest up to you.
 
 ## Sass
 
@@ -106,26 +106,37 @@ Hamburgers is a collection of tasty CSS-animated hamburger icons. Also included 
 
 1. Hamburgers is available on [npm](https://www.npmjs.com/package/hamburgers), yarn and [Bower](http://bower.io/search/?q=css-hamburgers).
 
-  ```
-  npm install hamburgers
+```
+npm install hamburgers
 
-  yarn add hamburgers
+yarn add hamburgers
 
-  bower install css-hamburgers
-  ```
+bower install css-hamburgers
+```
 
-  Also available as a [Ruby gem](https://rubygems.org/gems/hamburgers) to use within your Rails application—see [below](#install-for-ruby-on-rails) for more information.
+Also available as a [Ruby gem](https://rubygems.org/gems/hamburgers) to use within your Rails application—see [below](#install-for-ruby-on-rails) for more information.
 
-  Or to manually install it, [download](https://github.com/jonsuh/hamburgers/archive/master.zip) and unzip the source files, then copy the files from the `_sass/hamburgers` directory into your project.
+Or to manually install it, [download](https://github.com/jonsuh/hamburgers/archive/master.zip) and unzip the source files, then copy the files from the `_sass/hamburgers` directory into your project.
 
 2. Import the `hamburgers.scss` file in your Sass manifest file:
 
-  ```scss
-  @import "path/to/hamburgers";
-  ```
+```scss
+@use "path/to/hamburgers";
+```
 
-3. Customize your hamburger and/or remove any types you don’t want in `hamburgers.scss`.
-4. Compile your Sass*, and voila!
+3. Customize your hamburger using the `with` syntax to override default variables. Example:
+
+```scss
+@use "path/to/hamburgers" with (
+  $hamburger-padding-x: 20px,
+  $hamburger-padding-y: 15px,
+  $hamburger-types: (
+    collapse,
+  )
+);
+```
+
+4. Compile your Sass\*, and voila!
 
 \* Be sure to run the CSS through [Autoprefixer](https://github.com/postcss/autoprefixer) since the Sass doesn’t account for vendor prefixes.
 
@@ -133,58 +144,58 @@ Hamburgers is a collection of tasty CSS-animated hamburger icons. Also included 
 
 1. Add Hamburgers to your Gemfile.
 
-  ```
-  gem 'hamburgers'
-  ```
+```
+gem 'hamburgers'
+```
 
 2. Run `bundle install`.
-3. Include Hamburgers by using Sass’s native `@import`**:
+3. Include Hamburgers by using Sass’s native `@use`:
 
-  ```scss
-  // application.scss
-  @import "hamburgers";
-  ```
-
-  \** [More information](https://blog.pivotal.io/pivotal-labs/labs/structure-your-sass-files-with-import) on why Sass’s native `@import` + why you should ditch Sprockets directives altogether.
+```scss
+// application.scss
+@use "hamburgers";
+```
 
 ## Customization
 
-To override default settings, declare them before importing Hamburgers:
+To override default settings, use the `with` syntax when importing Hamburgers. For example:
 
 ```scss
-$hamburger-padding-x: 20px;
-$hamburger-padding-y: 15px;
-$hamburger-types     : (collapse);
-
-@import "hamburgers";
+@use "path/to/hamburgers" with (
+  $hamburger-padding-x: 20px,
+  $hamburger-padding-y: 15px,
+  $hamburger-types: (
+    collapse,
+  )
+);
 ```
 
 You can also create a separate file (e.g. `hamburgers-settings.scss`) with those declarations, then import it before Hamburgers:
 
 ```scss
-@import "hamburgers-settings"
-@import "hamburgers";
+@use "hamburgers-settings";
+@use "path/to/hamburgers";
 ```
 
-Here is the full list of default settings (found in `_sass/hamburgers/hamburgers.scss`);
+Here is the full list of default settings (found in `_sass/hamburgers/hamburgers.scss`):
 
 ```scss
-$hamburger-padding-x           : 15px;
-$hamburger-padding-y           : 15px;
-$hamburger-layer-width         : 40px;
-$hamburger-layer-height        : 4px;
-$hamburger-layer-spacing       : 6px;
-$hamburger-layer-color         : #000;
-$hamburger-layer-border-radius : 4px;
-$hamburger-hover-opacity       : 0.7;
-$hamburger-active-layer-color  : $hamburger-layer-color;
+$hamburger-padding-x: 15px;
+$hamburger-padding-y: 15px;
+$hamburger-layer-width: 40px;
+$hamburger-layer-height: 4px;
+$hamburger-layer-spacing: 6px;
+$hamburger-layer-color: #000;
+$hamburger-layer-border-radius: 4px;
+$hamburger-hover-opacity: 0.7;
+$hamburger-active-layer-color: $hamburger-layer-color;
 $hamburger-active-hover-opacity: $hamburger-hover-opacity;
 
 // To use CSS filters as the hover effect instead of opacity,
 // set $hamburger-hover-use-filter as true and
 // change the value of $hamburger-hover-filter accordingly.
-$hamburger-hover-use-filter   : false;
-$hamburger-hover-filter       : opacity(50%);
+$hamburger-hover-use-filter: false;
+$hamburger-hover-filter: opacity(50%);
 $hamburger-active-hover-filter: $hamburger-hover-filter;
 
 // Remove or comment out the hamburger types you don’t want
@@ -240,8 +251,13 @@ ARIA will help make it accessible to people with disabilities.
 
 ```html
 <nav>
-  <button class="hamburger hamburger--elastic" type="button"
-          aria-label="Menu" aria-controls="navigation" aria-expanded="true/false">
+  <button
+    class="hamburger hamburger--elastic"
+    type="button"
+    aria-label="Menu"
+    aria-controls="navigation"
+    aria-expanded="true/false"
+  >
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
     </span>
@@ -255,15 +271,20 @@ ARIA will help make it accessible to people with disabilities.
 
 You will need JavaScript to toggle between `aria-expanded` attribute being set to `true` and `false`, as this will indicate to visually impaired users whether the menu is opened or closed.
 
-The hamburger button belongs __inside__ the `<nav>` so that assistive technologies will be able to locate the navigation, and to allow these users to easily locatate the hamburger button, without having to search up and down the DOM, once they realize they've found themselves in an empty navigation.
+The hamburger button belongs **inside** the `<nav>` so that assistive technologies will be able to locate the navigation, and to allow these users to easily locatate the hamburger button, without having to search up and down the DOM, once they realize they've found themselves in an empty navigation.
 
 If you insist on using `<div>`s, by default they’re not focusable (i.e. via keyboard or assistive technology). Add the `tabindex` attribute alongside ARIA. You will also need to recreate expected keyboard functionality for these `<div>`s. Using JavaScript, you will need to make sure that both <kbd>Space</kbd> and <kbd>Enter</kbd> will toggle the hamburger states.
 
 ```html
 <nav id="navigation">
-
-  <div class="hamburger hamburger--elastic" tabindex="0"
-       aria-label="Menu" role="button" aria-controls="navigation" aria-expanded="true/false">
+  <div
+    class="hamburger hamburger--elastic"
+    tabindex="0"
+    aria-label="Menu"
+    role="button"
+    aria-controls="navigation"
+    aria-expanded="true/false"
+  >
     <div class="hamburger-box">
       <div class="hamburger-inner"></div>
     </div>

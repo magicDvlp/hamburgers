@@ -1,10 +1,12 @@
-@if index($hamburger-types, 3dx) {
+@use 'sass:list';
+@use '../var';
+@if list.index(var.$hamburger-types, 3dx) {
   /*
    * 3DX
    */
   .hamburger--3dx {
     .hamburger-box {
-      perspective: $hamburger-layer-width * 2;
+      perspective: var.$hamburger-layer-width * 2;
     }
 
     .hamburger-inner {
@@ -23,11 +25,11 @@
         transform: rotateY(180deg);
 
         &::before {
-          transform: translate3d(0, $hamburger-layer-height + $hamburger-layer-spacing, 0) rotate(45deg);
+          transform: translate3d(0, var.$hamburger-layer-height + var.$hamburger-layer-spacing, 0) rotate(45deg);
         }
 
         &::after {
-          transform: translate3d(0, ($hamburger-layer-height + $hamburger-layer-spacing) * -1, 0) rotate(-45deg);
+          transform: translate3d(0, (var.$hamburger-layer-height + var.$hamburger-layer-spacing) * -1, 0) rotate(-45deg);
         }
       }
     }

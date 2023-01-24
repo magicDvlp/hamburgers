@@ -1,4 +1,6 @@
-@if index($hamburger-types, stand-r) {
+@use 'sass:list';
+@use '../var';
+@if list.index(var.$hamburger-types, stand-r) {
   /*
    * Stand Reverse
    */

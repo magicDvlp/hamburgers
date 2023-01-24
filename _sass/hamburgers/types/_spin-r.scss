@@ -1,4 +1,6 @@
-@if index($hamburger-types, spin-r) {
+@use 'sass:list';
+@use '../var';
+@if list.index(var.$hamburger-types, spin-r) {
   /*
    * Spin Reverse
    */

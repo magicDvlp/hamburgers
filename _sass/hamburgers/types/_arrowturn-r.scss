@@ -1,4 +1,6 @@
-@if index($hamburger-types, arrowturn-r) {
+@use 'sass:list';
+@use '../var';
+@if list.index(var.$hamburger-types, arrowturn-r) {
   /*
    * Arrow Turn Right
    */
